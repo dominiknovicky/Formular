@@ -12,13 +12,13 @@
 	<div id="wrapper">
 		<div id="hdr1">Webove technologie</div>
 		<div id="name">Dominik<span>Novicky</span></div>
-		<table>
+		<table id="table">
 			<tr>
 				<td class="first">
 					<span class="name">FIRST NAME</span>
 				</td>
 				<td>
-					<input id="fName" class="getSizeFromInput" type="text" name="name" placeholder="John" value="">
+					<input id="fName" class="getSizeFromInput" type="text" name="firstname" placeholder="John">
 					<div id="errfname"></div>
 				</td>
 			</tr>
@@ -27,7 +27,7 @@
 					<span class="name">LAST NAME</span> 
 				</td>
 				<td>
-					<input id="lName" class="setSize" type="text" name="lastname" placeholder="Doe" value="">
+					<input id="lName" class="setSize" type="text" name="lastname" placeholder="Doe">
 					<div id="errlname"></div>
 				</td>
 			</tr>
@@ -36,7 +36,8 @@
 					<span class="name">DATE</span> 
 				</td>
 				<td>
-					<input class="setSize" type="date" name="date"><br>
+					<input id="compareDate" class="setSize" type="date" name="date">
+					<div id="errDate"></div>
 				</td>
 			</tr>
 			<tr>
@@ -44,8 +45,8 @@
 					<span class="name">GENDER</span>		
 				</td>
 				<td>
-			 		<input type="radio" name="gender" value="1"><span>Male</span><br>
-			 		<input type="radio" name="gender" value="2"><span>Female</span>
+			 		<input class="check" id="male" type="radio" name="gender" value="male"><span>Male</span><br>
+			 		<input class="check" id="female" type="radio" name="gender" value="female"><span>Female</span>
 				</td>
 			</tr>
 			<tr>

@@ -73,7 +73,6 @@ table {
 	font-weight: bold;
 	color: #691A1A;
 	padding: 5px 5px 5px 0;
-	text-align:
 }
 
 input, select {
@@ -88,7 +87,7 @@ input, select {
 	text-align: right;
 }
 
-#errfname, #errlname {
+#errfname, #errlname, #errDate {
 	color: #F74949;
 	font-size: .8em;
 	letter-spacing: .5px;
