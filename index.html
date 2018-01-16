@@ -19,8 +19,11 @@
 				</td>
 				<td>
 					<input id="fName" class="getSizeFromInput" type="text" name="firstname" placeholder="John">
-					<div id="errfname"></div>
 				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><div id="errfname"></div></td>
 			</tr>
 			<tr>
 				<td class="first">
@@ -28,8 +31,11 @@
 				</td>
 				<td>
 					<input id="lName" class="setSize" type="text" name="lastname" placeholder="Doe">
-					<div id="errlname"></div>
 				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><div id="errlname"></div></td>
 			</tr>
 			<tr>
 				<td class="first">
@@ -37,8 +43,11 @@
 				</td>
 				<td>
 					<input id="compareDate" class="setSize" type="date" name="date">
-					<div id="errDate"></div>
 				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><div id="errDate"></div></td>
 			</tr>
 			<tr>
 				<td class="first">
@@ -54,17 +63,25 @@
 					<span class="name">SHOW GENDER</span>
 				</td>
 				<td>
-					<select>
-						<option value="Both" selected>Both</option>
-						<option value="Female">Female</option>
-						<option value="Male">Male</option>
-					</select><br>
-					<input type="checkbox" name="age" value="1"> <span style="font-size: .8em; margin-top: 5px; display: inline-block;">SHOW AGE</span> 
+					<select id="selectGender">
+						<option name = "selectGender" class="genderValue" value="a">Both</option>
+						<option name = "selectGender" class="genderValue" value="f">Female</option>
+						<option name = "selectGender" class="genderValue" value="m">Male</option>
+					</select>
 				</td>
+			</tr>	
+			<tr>
+				<td></td>
+				<td><input type="checkbox" name="age" value="1"> <span style="font-size: .8em; margin-top: 5px; display: inline-block;">SHOW AGE</span> </td>
 			</tr>
 		</table>
-		<div id="btn"><button class="send" type="submit" name="odoslat">submit</button></div>
+		<div class="btnCenter">
+			<span id="btnSend"><button class="send" type="submit" name="odoslat">submit</button></span>
+			<span id="btnShow"><button class="send" type="submit" name="odoslat">show</button></span>
+		</div>	
 	</div>
+
+	<div class="table"></div>
 
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/script.js"></script>

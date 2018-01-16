@@ -9,7 +9,7 @@ body {
 
 #wrapper {
 	max-width: 50%;
-	height: 500px;
+	height: 85%;
 	background: rgba(255,255,255,.9);
 	border: 10px solid #000;
 	box-shadow: 0 0 2px 2px #000;
@@ -25,16 +25,16 @@ body {
 	background: #000;
 	color: #fff;
 	padding: 20px;
-	font-size: 2.2em;
+	font-size: 2.1em;
 	letter-spacing: 4px;
 	font-weight: bold;
 }
 
 #name {
-	font-size: 2.1em;
+	font-size: 2em;
 	text-transform: uppercase;
 	text-align: center;
-	padding: 30px;
+	padding: 25px;
 	font-weight: bold;
 	letter-spacing: -2.5px;
 }
@@ -50,7 +50,8 @@ table {
 .send {
 	text-transform: uppercase;
 	padding: 7px 30px;
-	margin: 20px;
+	margin: 20px 1px;
+	width: 150px;
 	border: 4px solid #691A1A;
 	background-color: #691A1A;
 	color: #fff;
@@ -63,6 +64,10 @@ table {
 .send:hover {
 	background-color: #fff;
 	color: #691A1A;
+}
+
+.btnCenter {
+	text-align: center;
 }
 
 #btn {
@@ -81,6 +86,7 @@ input, select {
 	border: 1px solid #767676;
 	margin: 1px 0;
 	display: inline-block;
+	background-color: #fff;
 }
 
 .first {
@@ -93,4 +99,31 @@ input, select {
 	letter-spacing: .5px;
 	text-transform: uppercase;
 	padding: 2px 0;
+}
+
+.table {
+	position: absolute;
+	top: 0; right: 0;
+	margin: auto;
+	max-width: 50%;
+	height: auto;
+	background-color: #fff;
+	border-radius: 5px;
+	display: none;
+}
+.table table {
+	max-width: 100%;
+	padding: 2em;
+}
+.table th {
+	padding: 10px;
+	background-color: #000;
+	color: #fff;
+	border-radius: 5px;
+	text-transform: uppercase;
+}
+.table td {
+	padding: 10px 5px;
+	text-align: center;
+	border-bottom: 2px solid #000;
 }
