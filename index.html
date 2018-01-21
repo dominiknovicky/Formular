@@ -4,8 +4,11 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>formular</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="style.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&amp;subset=latin-ext" rel="stylesheet">
+	<script src="https://use.fontawesome.com/69e9bead1c.js"></script>
+
 </head>
 <body>
 	
@@ -54,7 +57,7 @@
 					<span class="name">GENDER</span>		
 				</td>
 				<td>
-			 		<input class="check" id="male" type="radio" name="gender" value="male"><span>Male</span><br>
+			 		<input class="check" id="male" type="radio" name="gender" value="male" checked><span>Male</span><br>
 			 		<input class="check" id="female" type="radio" name="gender" value="female"><span>Female</span>
 				</td>
 			</tr>
@@ -74,14 +77,14 @@
 				<td></td>
 				<td><input type="checkbox" name="age" id="showAge"> <span style="font-size: .8em; margin-top: 5px; display: inline-block;">SHOW AGE</span> </td>
 			</tr>
+			<tr>
+				<td><span id="btnSend"><button class="send" type="submit" name="odoslat">submit</button></span></td>
+				<td><span id="btnShow"><button class="send" type="submit" name="odoslat"><span class="show">table</span></button></span></td>
+			</tr>
 		</table>
-		<div class="btnCenter">
-			<span id="btnSend"><button class="send" type="submit" name="odoslat">submit</button></span>
-			<span id="btnShow"><button class="send" type="submit" name="odoslat">show</button></span>
-		</div>	
 	</div>
-
 	<div class="table"></div>
+
 
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/script.js"></script>

@@ -75,37 +75,55 @@
             });
         
         })();
-    
+
         if (error == false){
             $(".table").css({"border" : "10px solid #000"});
+            $(".table").fadeIn(250);
             data();
+            deleteForm();
         }
     });
 
     function data(){
+        var dob = $('#compareDate').val();
+        dob = new Date(dob);
+        var today = new Date();
+        var age = Math.floor((today-dob) / (365.25 * 24 * 60 * 60 * 1000));
+
         var person = new Object();
         person.fname = $("#fName").val();
         person.lname = $("#lName").val();
         person.date = $("#compareDate").val();
+        person.age = age;
         person.gender = $("input[name='gender']:checked").val();
+        person.delete = $("<i class='fa fa-trash' aria-hidden='true'></i>"); 
         persons.push(person);
         printTable();
     }
 
     function printTable(){
+        error = false;
         var divTable=$('.table');
         divTable.empty();
         var selectedGender = getSelectedGender();
         var checkedAge = isCheckedAge();
         var arr = new Array();
+        var arrAge = new Array();
+
 
         persons.forEach(function(obj){
-            if(selectedGender == 'm' && obj.gender == 'male')
+            if(selectedGender == 'm' && obj.gender == 'male'){   
                 arr.push(obj);
-            else if(selectedGender == "f" && obj.gender == "female")
+                arrAge.push(obj);
+            }
+            else if(selectedGender == "f" && obj.gender == "female"){
                 arr.push(obj);
-            else if(selectedGender == "a")
+                arrAge.push(obj);
+            }
+            else if(selectedGender == "a"){
                 arr.push(obj);
+                arrAge.push(obj);
+            }
         });
 
         if(arr.length>0){
@@ -133,25 +151,60 @@
             divTable.append(table);
         }
 
-        arr.forEach(function(obj){
-          var line=$("<tr/>");
-          var col1=$("<td/>");
-          $(col1).append(obj.fname);
-          var col2=$("<td/>");
-          $(col2).append(obj.lname);
-          var col3=$("<td/>");
-          $(col3).append(obj.date);
-          var col4=$("<td/>");
-          $(col4).append(obj.gender);
-            line.append(col1);
-            line.append(col2);
-            line.append(col3);
-            line.append(col4);
-            table.append(line);
-            divTable.append(table);
+        if($("#showAge").is(":checked") == false){
+
+            arr.forEach(function(obj){
+              var line=$("<tr/>");
+              var col1=$("<td/>");
+              $(col1).append(obj.fname);
+              var col2=$("<td/>");
+              $(col2).append(obj.lname);
+              var col3=$("<td/>");
+              $(col3).append(obj.date);
+              var col4=$("<td/>");
+              $(col4).append(obj.gender);
+              var col5=$("<td/>");
+              $(col5).append(obj.delete);
+                line.append(col1);
+                line.append(col2);
+                line.append(col3);
+                line.append(col4);
+                line.append(col5);
+                table.append(line);
+                divTable.append(table);
+            });
+
+        }
+        else {
+
+            arrAge.forEach(function(obj){
+              var line=$("<tr/>");
+              var col1=$("<td/>");
+              $(col1).append(obj.fname);
+              var col2=$("<td/>");
+              $(col2).append(obj.lname);
+              var col3=$("<td/>");
+              $(col3).append(obj.age);
+              var col4=$("<td/>");
+              $(col4).append(obj.gender);
+              var col5=$("<td/>");
+              $(col5).append(obj.delete);
+                line.append(col1);
+                line.append(col2);
+                line.append(col3);
+                line.append(col4);
+                line.append(col5);
+                table.append(line);
+                divTable.append(table);
+            });
+
+        }
+   
+        $(".table").on('click', '.fa-trash', function () {
+            $(this).closest("tr").remove();
         });
+
     }
-    
 
     function getSelectedGender(){
          var selectedGender = $("option[name='selectGender']:checked").val();
@@ -170,18 +223,16 @@
         printTable();
     });
 
-    var date1 = $("#compareDate").val();
-    console.log(date1);
+    function deleteForm(){
+        $("#lName, #fName, #compareDate").val("");
+    }
 
     var wdth = $(".getSizeFromInput").css("width");
     $(".setSize").css({"width" : wdth});
 
-    $("#btnShow, .table").mouseenter(function(){
-    	$(".table").stop().fadeIn(250);
+    $("#btnShow").click(function(){
+        if(error == false)
+            $(".table").stop().fadeToggle(250);
     });
-    $("#btnShow, #btnSend, .table").mouseleave(function(){
-    	$(".table").stop().fadeOut(250);
-    });
-
 
 })(jQuery);
