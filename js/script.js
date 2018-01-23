@@ -84,6 +84,7 @@
         }
     });
 
+    
     function data(){
         var dob = $('#compareDate').val();
         dob = new Date(dob);
@@ -204,8 +205,24 @@
             $(this).closest("tr").remove();
         });
 
+
+        $("body").on("click", "#btnSave", function(){
+            if(arr.length == 0)
+                return;
+
+            if(typeof(Storage) !== "undefined") 
+                localStorage.arr = JSON.stringify(arr)
+        });
+
+        $("body").on("click", "#btnLoad", function(){
+            if(typeof(Storage) !== "undefined") {
+                arr = JSON.parse(localStorage.arr);
+                printTable();
+            }
+        });
     }
 
+    
     function getSelectedGender(){
          var selectedGender = $("option[name='selectGender']:checked").val();
          return selectedGender;
@@ -234,5 +251,9 @@
         if(error == false)
             $(".table").stop().fadeToggle(250);
     });
+
+    // if($(".table").css("display") !== "none")
+    //     $(".table").append("<div id='loadSave'><button id='btnLoad' class='send'>load</button><button id='btnSave' class='send'>save</button></div>");
+
 
 })(jQuery);
